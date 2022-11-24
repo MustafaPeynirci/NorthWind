@@ -1,0 +1,35 @@
+<div class="form-group mt-3 mb-3">
+  <input
+  type="text"
+  class="form-control"
+  id="filter"
+  [(ngModel)]="filterText"
+   />
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Category Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Vat</th>
+        <th scope="col">Units In Stock</th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products|filter:filterText">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.categoryId}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.unitPrice|currency:'EUR'}}</td>
+        <td>{{product.unitPrice|vat:10|currency:'EUR'}}</td>
+        <td>{{product.unitsInStock}}</td>
+        <td><button (click)="addToCart(product)">Sepete Ekle</button></td>
+      </tr>
+
+    </tbody>
+  </table>

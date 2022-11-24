@@ -1,0 +1,10 @@
+<ul class="list-group">
+    <li (click)="selectCategory(category)" 
+        routerLink="/products/category/{{ category.id }}"
+        class="list-group-item" *ngFor="let category of categories">
+        {{category.name | lowercase}}
+    </li>
+</ul>
+<h4 *ngIf="currentCategory">{{currentCategory.name}}</h4>
+<h4>{{counterOfCategory}}</h4>
+<button (click)="increase()">İncrease</button>
