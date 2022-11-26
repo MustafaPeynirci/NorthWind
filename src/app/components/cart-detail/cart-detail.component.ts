@@ -1,21 +1,27 @@
 import  ICartItem  from 'src/app/cart-item';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
+import IProduct from 'src/app/product';
 
 @Component({
-  selector: 'app-cart-summary',
-  templateUrl: './cart-summary.component.html',
-  styleUrls: ['./cart-summary.component.css']
+  selector: 'app-cart-detail',
+  templateUrl: './cart-detail.component.html',
+  styleUrls: ['./cart-detail.component.css']
 })
-export class CartSummaryComponent implements OnInit {
+export class CartDetailComponent implements OnInit {
 
+  
   constructor(public cartService:CartService) { }
-
-  cartItems:ICartItem[]=[]
+  cartItems:ICartItem[] = []
   totalPrice:number = 0
   totalQuantity:number = 0
+
   ngOnInit(): void {
     this.cartItems = this.cartService.getCart()
+  }
+
+  deleteToCart(product:IProduct){
+    this.cartService.deleteToCart(product)
   }
 
 }

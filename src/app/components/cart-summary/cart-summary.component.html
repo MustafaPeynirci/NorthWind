@@ -1,11 +1,13 @@
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Sepetiniz
+      Sepetiniz ({{cartService.totalPrice.toFixed(2)}})
     </a>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" *ngFor="let item of cartItems">{{item.product.name}} - </a></li>
+      <li><a class="dropdown-item" *ngFor="let item of cartItems">{{item.product.name}} {{item.product.unitPrice|currency:'EUR'}} ({{item.quantity}})</a></li>
      
       <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
+      <li><a class="dropdown-item">Toplam: {{cartService.totalPrice.toFixed(2)|currency:"EUR"}}</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" routerLink="/cart-detail">Sepete Git</a></li>
     </ul>
   </li>

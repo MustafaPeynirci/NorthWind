@@ -1,0 +1,24 @@
+<div class="login col-md-6">
+    <form [formGroup]="userForm">
+        <h2>Kayıt Ol</h2>
+        <label for="">Adınız</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="name" placeholder="Recipient's username" aria-describedby="basic-addon2">
+        </div>
+        <label for="">Soyadınız</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="surname" placeholder="Recipient's surname" aria-describedby="basic-addon2">
+        </div>
+        <label for="">Email Adresiniz</label>
+        <div class="input-group mb-3">
+            <input type="email" class="form-control" formControlName="email" placeholder="Recipient's email" aria-describedby="basic-addon2">
+        </div>
+        <label for="">Şİfreniz</label>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" formControlName="password" placeholder="Recipient's password" aria-describedby="basic-addon2">
+        </div>
+        <div class="d-flex justify-content-end">
+            <button (click)="saveUser()" class="btn btn-primary">Gönder</button>
+        </div>
+    </form>
+</div>

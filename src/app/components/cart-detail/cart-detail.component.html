@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Ürün Adı</th>
+        <th scope="col">Fiyat</th>
+        <th scope="col">Miktar</th>
+        <th scope="col">İşlem</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>{{item.product.name}}</td>
+        <td>{{item.product.unitPrice}}</td>
+        <td>{{item.quantity}}</td>
+        <td><button class="btn btn-danger" (click)="deleteToCart(item.product)">Sil</button></td>
+      </tr>
+      <tr>
+        <th>Toplam</th>
+        <td>{{cartService.totalPrice.toFixed(2)}}</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>

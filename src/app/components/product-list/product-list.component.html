@@ -28,7 +28,7 @@
         <td>{{product.unitPrice|currency:'EUR'}}</td>
         <td>{{product.unitPrice|vat:10|currency:'EUR'}}</td>
         <td>{{product.unitsInStock}}</td>
-        <td><button (click)="addToCart(product)">Sepete Ekle</button></td>
+        <td><button class="btn btn-primary" (click)="addToCart(product)">Sepete Ekle</button></td>
       </tr>
 
     </tbody>

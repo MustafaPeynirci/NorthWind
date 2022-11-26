@@ -1,0 +1,35 @@
+<div class="col-md-6">
+<form [formGroup]="userControlForm">
+    <h2>Giriş</h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Şifre</label>
+      <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+    </div>
+    <div class="d-flex justify-content-end">
+        <button (click)="userControl()" type="submit" class="btn btn-primary">Giriş Yap</button>
+    </div>
+  </form>
+</div>
+<!-- 
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Email</th>
+        <th>Şifre</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+        </tr>
+    </tbody>
+</table> -->

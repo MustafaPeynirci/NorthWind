@@ -8,6 +8,8 @@ import IProduct from '../product';
 })
 export class CartService {
 
+  totalPrice:number = 0;
+  totalQuantity:number = 0;
   constructor() { }
 
   getCart(){
@@ -22,8 +24,28 @@ export class CartService {
     else{
       CART_ITEMS.push({quantity:1, product:product})
     }
-
-
+    this.addCartPrice(product)
   }
+  deleteToCart(product:IProduct){
+    let cartItem:ICartItem = CART_ITEMS.find(item=>item.product.id === product.id)
+
+      if(cartItem.quantity>1){
+        this.totalPrice -= cartItem.product.unitPrice
+        cartItem.quantity--
+      }
+      else{
+        this.totalPrice -= cartItem.product.unitPrice
+        CART_ITEMS.splice(CART_ITEMS.indexOf(cartItem),1)
+      }
+    
+  }
+
+  addCartPrice(product:IProduct){
+    this.totalPrice+=product.unitPrice
+  }
+  addCartQuantity(cart:ICartItem){
+    this.totalQuantity+=cart.quantity
+  }
+
 
 }
